@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>AmazingBoy Gallery</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css'>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat&amp;display=swap"rel="stylesheet'>
+  <link rel="stylesheet" href="/static/css/gallery.css">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="app">
+<div class="btn--back">
+	<button id="btn--back">
+		<svg>
+			<use xlink:href="#back"></use>
+		</svg>
+	</button>
+</div>
+	<div class="cardList">
+		<button class="cardList__btn btn btn--left">
+			<div class="icon">
+				<svg>
+					<use xlink:href="#arrow-left"></use>
+				</svg>
+			</div>
+		</button>
+		
+		<div class="cards__wrapper">
+			<div class="card previous--card" id="card-1" href="/album?id={{ .FirstAlbum.ID }}">
+				<div class="card__image">
+					<img src="{{ .FirstAlbum.Cover }}" alt="" />
+				</div>
+			</div>
+
+			<div class="card current--card" id="card-2" href="/album?id={{ .SecondAlbum.ID }}">
+				<div class="card__image">					
+					<img src="{{ .SecondAlbum.Cover }}" alt="" />
+				</div>
+			</div>
+
+			<div class="card next--card" id="card-3" href="/album?id={{ .ThirdAlbum.ID }}">
+				<div class="card__image">
+					<img src="{{ .ThirdAlbum.Cover }}" alt="" />
+				</div>
+			</div>
+
+			{{ range .RestAlbums }}
+			<div class="card hidden--card" id="card-{{ .ID }}" href="/album?id={{ .ID }}">
+				<div class="card__image">
+					<img src="{{ .Cover }}" alt="" />
+				</div>
+			</div>
+			{{ end }}
+
+		</div>
+
+		<button class="cardList__btn btn btn--right">
+			<div class="icon">
+				<svg>
+					<use xlink:href="#arrow-right"></use>
+				</svg>
+			</div>
+		</button>
+	</div>
+
+	<div class="infoList">
+		<div class="info__wrapper">
+			<div class="info previous--info" id="info-1">
+				<h1 class="text name">{{ .FirstAlbum.Name }}</h1>
+				<h4 class="text location">{{ .FirstAlbum.Type }}</h4>
+				<p class="text description">{{ .FirstAlbum.Description }}</p>
+			</div>
+
+			<div class="info current--info" id="info-2">
+				<h1 class="text name">{{ .SecondAlbum.Name }}</h1>
+				<h4 class="text location">{{ .SecondAlbum.Type }}</h4>
+				<p class="text description">{{ .SecondAlbum.Description }}</p>
+			</div>
+			
+			<div class="info next--info" id="info-3">
+				<h1 class="text name">{{ .ThirdAlbum.Name }}</h1>
+				<h4 class="text location">{{ .ThirdAlbum.Type }}</h4>
+				<p class="text description">{{ .ThirdAlbum.Description }}</p>
+			</div>
+
+			{{ range .RestAlbums }}
+			<div class="info hidden--info" id="info-{{ .ID }}">
+				<h1 class="text name">{{ .Name }}</h1>
+				<h4 class="text location">{{ .Type }}</h4>
+				<p class="text description">{{ .Description }}</p>
+			</div>
+			{{ end }}
+
+		</div>
+	</div>
+
+
+	<div class="app__bg">
+		<div class="app__bg__image previous--image" id="bg-1">
+			<img src="{{ .FirstAlbum.Cover }}" alt="" />
+		</div>
+		<div class="app__bg__image current--image" id="bg-2">			
+			<img src="{{ .SecondAlbum.Cover }}" alt="" />
+		</div>
+		<div class="app__bg__image next--image" id="bg-3">
+			<img src="{{ .ThirdAlbum.Cover }}" alt="" />
+		</div>
+		{{ range .RestAlbums }}
+		<div class="app__bg__image hidden--image" id="bg-{{ .ID }}">
+			<img src="{{ .Cover }}" alt="" />
+		</div>
+		{{ end }}
+	</div>
+</div>
+
+<div class="loading__wrapper">
+	<div class="loader--text">Loading...</div>
+	<div class="loader">
+		<span></span>
+	</div>
+</div>
+
+
+<svg class="icons" style="display: none;">
+	<symbol id="arrow-left" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'>
+		<polyline points='328 112 184 256 328 400'
+					 style='fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px' />
+	</symbol>
+	<symbol id="arrow-right" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'>
+		<polyline points='184 112 328 256 184 400'
+					 style='fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px' />
+	</symbol>
+	<symbol id="back" xmlns='http://www.w3.org/2000/svg' viewBox="0 0 1024 1024">
+		<path d="M598.656 681.344a32 32 0 0 1-45.312 45.312l-192-192a32 32 0 0 1 0-45.312l192-192a32 32 0 1 1 45.312 45.312L429.248 512l169.408 169.344zM512 1024A512 512 0 1 1 512 0a512 512 0 0 1 0 1024z m0-64A448 448 0 1 0 512 64a448 448 0 0 0 0 896z" style="fill:white;stroke:#fff;"></path>
+	</symbol>
+</svg>
+
+<!-- partial -->
+<script src='/static/js/imagesloaded.pkgd.min.js'></script>
+<script src='/static/js/gsap.min.js'></script>
+<script  src="/static/js/gallery.js"></script>
+
+</body>
+</html>

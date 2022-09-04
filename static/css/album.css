@@ -1,0 +1,34 @@
+article {
+    width: 1440px;
+    margin: 0 auto;
+}
+
+.album {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.album img {
+    display: block;
+    margin: 0 auto;
+    width: 70%;
+    height: 70%;
+}
+
+.album h1 {
+    text-align: center;
+    font-size: 1.5em;
+    margin: 20px auto 0px auto;
+    color:	#454545;
+}
+
+.album p {
+    text-align: center;
+    font-size: 1.2em;
+    margin: 0px auto 50px auto;
+    color:darkgray;
+}
+
+.album svg {
+    position:relative;
+}

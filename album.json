@@ -1,0 +1,8 @@
+{
+    "Albums": [
+        {"ID": 1, "name": "成都印象", "Description": "成都建筑、风土人情记录", "Type": "城市风景", "Cover": "/static/picture/cover/1.jpg"},
+        {"ID": 2, "name": "南京记忆", "Description": "南京历史建筑、风景区记录", "Type": "城市风景", "Cover": "/static/picture/cover/2.jpg"},
+        {"ID": 3, "name": "川西风景", "Description": "川西草原、山川、人文记录", "Type": "自然风光", "Cover": "/static/picture/cover/3.jpg"},
+        {"ID": 4, "name": "万物生灵", "Description": "动植物园、野生动植物记录", "Type": "动物摄影", "Cover": "/static/picture/cover/4.jpg"}
+    ]
+}
